@@ -1,11 +1,37 @@
-# thalamic_arousal_sequence_repository
+# Thalamic Arousal Sequence
 
-#7T_arousal_traces.mat and 3T_arousal_traces
-# 1. all_arousals: 3-D matrix, time x ROIs x behavioral arousals
-# 2. t : time vector
-# 3. rois_hdr : hdr file of the name of each ROI
-# 4. (7T only) transient_sustained: 1 if corresponding index of arousal was transient, 2 if sustained, 0 otherwise
+This repository contains the preprocessed arousal data from our paper "A
+temporal sequence of thalamic activity unfolds prior to transitions in behaviour
+arousal state".
+
+?
+Make a note to insert:
+If you use this data or code, please cite:
+?
+
+# Data
+
+The two .mat files in this repository contains four structures:
 
 
-#bootstrap_code
-# loads 7T arousal traces, finds the lag of the mean arousal traces, and then computes a bootstrap to get 95% confidence intervals.
+1. *all_arousals*
+A 3D matrix of dimension time x ROIs x normalized response amplitude
+
+2. *t*
+A time vector indicating the sampling points in all_arousals
+
+3. *rois_hdr*
+The name of each ROI in all_arousals
+
+4. (7T only) transient_sustained
+An int vector where 1 corresponds to transient and 2 to sustained arousals.
+
+Zero corresponds to the moment of behavioral arousal.
+
+# Code
+
+The code in `bootstrap_code.m` loads 7T arousal traces, finds the lag of the mean arousal traces, and then
+computes a bootstrap to get 95% confidence intervals.
+
+The code was tested under Matlab.
+
